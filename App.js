@@ -1,21 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import Main from './components/MainComponent'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up this up to check out your apps!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Main />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const logo = {
+  uri: 'https://cdn0.iconfinder.com/data/icons/tutor-icon-set/512/Backpack_icon-512.png',
+  width: 128,
+  height: 128
+};
