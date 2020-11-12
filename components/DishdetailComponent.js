@@ -7,11 +7,10 @@ function RenderDish(props) {
 
     if (dish != null){
         return(
-            <Card
-                featuredTitle={dish.name}
-                image={{uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'}}
-            >
+            <Card>
+                <Card.Title>{dish.name}</Card.Title>
+                <Card.Image source={{uri:
+                    'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'}}/>
                 <Text style={{margin:10}}>
                     {dish.description}
                 </Text>
