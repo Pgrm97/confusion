@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Card } from 'react-native-elements'
-import { DISHES } from '../shared/dishes'
+import { connect } from 'react-redux';
+import { baseUrl } from '../shared/baseUrl'
+
+const mapStateToProps = state => {
+    return {
+        dishes: state.dishes,
+        comments: state.comments
+    }
+}
 
 function RenderDish(props) {
     const dish = props.dish;
@@ -10,8 +18,7 @@ function RenderDish(props) {
         return(
             <Card>
                 <Card.Title>{dish.name}</Card.Title>
-                <Card.Image source={{uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'}}/>
+                <Card.Image source={{uri: baseUrl + dish.image}}/>
                 <Text style={{margin:10}}>
                     {dish.description}
                 </Text>
@@ -29,7 +36,6 @@ class Dishdetail extends Component {
     constructor(props){
         super(props);
         this.state = {
-            dishes: DISHES
         };
     }
 
@@ -40,8 +46,8 @@ class Dishdetail extends Component {
     render(){
         const dishId = this.props.navigation.getParam('dishId', '');
 
-        return(<RenderDish dish={this.state.dishes[dishId]} />);
+        return(<RenderDish dish={this.props.dishes.dishes[dishId]} />);
     }    
 }
 
-export default Dishdetail;
+export default connect(mapStateToProps)(Dishdetail);

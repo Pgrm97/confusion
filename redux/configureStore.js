@@ -3,13 +3,15 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { dishes } from './dishes';
 import { comments } from './comments';
-import { promotions } from './promotions';
+import { promos } from './promotions';
 import { leaders } from './leaders';
 
+
+//Creates the Store that will store all the state data.
 export const ConfigureStore = () => {
     const store = createStore(
         combineReducers({
-            dishes, comments, promotions, leaders
+            dishes, comments, promos, leaders
         }),
         applyMiddleware(thunk, logger)
     );
